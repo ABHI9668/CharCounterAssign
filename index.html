@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Character Counter</title>
+</head>
+<body>
+    <textarea id="textArea" rows="4" cols="50" maxlength="50" placeholder="Enter the Character"></textarea>
+    <p><span id="counter">0</span> / 50 characters</p>
+
+    <script>
+        const textArea = document.getElementById('textArea');
+        const counter = document.getElementById('counter');
+
+        textArea.addEventListener('input', () => {
+            const currentLength = textArea.value.length;
+            counter.textContent = currentLength;
+
+            if (currentLength > 50) {
+                textArea.value = textArea.value.slice(0, 50);
+                counter.style.color = 'red';
+            } else {
+                counter.style.color = 'black';
+            }
+        });
+    </script>
+</body>
+</html>
